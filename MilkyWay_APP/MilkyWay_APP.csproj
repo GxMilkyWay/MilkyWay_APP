@@ -66,16 +66,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Costume.css" />
+    <Content Include="Scripts\Costume\Module.js" />
+    <Content Include="Scripts\Master\Jquery.js" />
     <Content Include="Views\Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\Costume\" />
-    <Folder Include="Scripts\Master\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
