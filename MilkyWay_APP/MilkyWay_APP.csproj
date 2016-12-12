@@ -72,7 +72,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CSS\" />
     <Folder Include="Scripts\Costume\" />
     <Folder Include="Scripts\Master\" />
   </ItemGroup>
