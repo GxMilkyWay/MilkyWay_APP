@@ -81,7 +81,7 @@
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2">@</span>
-                                <input type="text" class="form-control" placeholder="Username" ng-change="changeEvent()"
+                                <input type="text" autocomplete="off" class="form-control" placeholder="Username" ng-change="changeEvent()"
                                        ng-model="LoginData.Username" name="cUsername" aria-describedby="sizing-addon2"
                                        ng-class="Submitted?'ng-dirty':''" required autofocus>
                             </div>
@@ -100,7 +100,7 @@
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2">@</span>
-                                <input type="password" class="form-control" placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
+                                <input type="password" class="form-control"  placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
                                        ng-model="LoginData.Password" name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus>
                             </div>
  
