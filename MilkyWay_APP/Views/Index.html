@@ -6,21 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Logo Nav - Start Bootstrap Template</title>
-    <!-- Bootstrap Core CSS -->
+    <title>MilkyWay -Home PAge</title>
 
+    <style>
+        input {
+            padding: 5px;
+            border: 1px solid #A5A5A5;
+        }
+
+            input.ng-dirty.ng-invalid {
+                border: 1px solid red;
+                background-color: rgb(255, 244, 244);
+            }
+
+        .error {
+            color: red;
+        }
+    </style>
+    <!-- Bootstrap Core CSS -->
     <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
-     
     <link href="../CSS/logo-nav.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 </head>
-<body>
+<body ng-app="MyApp">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -55,20 +64,77 @@
         <!-- /.container -->
     </nav>
     <!-- Page Content -->
-    <div class="container">
+
+
+    <center>
         <div class="row">
-            <div class="col-lg-12">
-                <h1>Logo Nav by Start Bootstrap</h1>
-                <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>
-            </div>
+            <div class="col-lg-12"><h1>Login</h1></div>
         </div>
-    </div>
+
+        <div ng-controller="LoginController">
+            <form novalidate name="f1" ng-submit="Login()">
+                <div style="color:rgb(142,2,2)">{{Message}}</div>
+                <table ng-show="!IsLogedIn">
+                    <!-- Here  ng-show="!IsLogedIn" means I want to hide table after loged in-->
+                    <tr>
+
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">@</span>
+                                <input type="text" class="form-control" placeholder="Username" ng-change="changeEvent()"
+                                       ng-model="LoginData.Username" name="cUsername" aria-describedby="sizing-addon2"
+                                       ng-class="Submitted?'ng-dirty':''" required autofocus>
+                            </div>
+                            
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>&nbsp;
+                            <span class="error" ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required">Username required</span>
+                        </td>
+                    </tr>
+                     
+                    <tr>
+
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">@</span>
+                                <input type="password" class="form-control" placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
+                                       ng-model="LoginData.Password" name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                            </div>
+ 
+                        </td>
+
+                    </tr>
+                    
+
+                    <tr>
+                        <td>&nbsp;
+                            <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </center>
     <!-- /.container -->
     <!-- jQuery -->
 
     <script src="../Scripts/Master/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
+
+
+    <script src="../Scripts/Angular/angular.min.js"></script>
+    <script src="../Scripts/Angular/angular-route.min.js"></script>
+    <script src="../Scripts/MyApp.js"></script>
+    <script src="../Scripts/AngularController/LoginController.js"></script>    <!-- Bootstrap Core JavaScript -->
     <script src="../Scripts/Master/bootstrap.min.js"></script>
-   
+
 </body>
 </html>

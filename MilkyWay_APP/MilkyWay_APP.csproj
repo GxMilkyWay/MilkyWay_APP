@@ -76,19 +76,23 @@
     <Content Include="CSS\logo-nav.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\Logo.png" />
+    <Content Include="Scripts\AngularController\LoginController.js" />
     <Content Include="Scripts\Angular\angular-route.min.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
     <Content Include="Scripts\Costume\Module.js" />
     <Content Include="Scripts\Master\bootstrap.js" />
     <Content Include="Scripts\Master\bootstrap.min.js" />
     <Content Include="Scripts\Master\jquery.js" />
+    <Content Include="Scripts\MyApp.js" />
     <Content Include="Views\Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Start\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
