@@ -62,6 +62,7 @@
         Username: '',
         Password: '',
         FullName: '',
+        MobileNumber:'',
         EmailID: '' 
     };
 
@@ -85,8 +86,8 @@
                 //});
             }
              else {
-                 alert("Galat hai");
-                $scope.message = 'Please fill required fields value';
+                // alert("Galat hai");
+               // $scope.message = 'Please fill required fields value';
             }
         }
     }
