@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\AngularCSS.css" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -84,7 +86,9 @@
     <Content Include="Scripts\Master\bootstrap.min.js" />
     <Content Include="Scripts\Master\jquery.js" />
     <Content Include="Scripts\MyApp.js" />
+    <Content Include="Views\ForgetPassword.html" />
     <Content Include="Views\Index.html" />
+    <Content Include="Views\SignUp.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
