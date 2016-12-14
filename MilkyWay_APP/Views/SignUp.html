@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="online Milk order">
     <meta name="author" content="MilkyWay">
-    <title>MilkyWay-Forget Password</title>
+    <title>MilkyWay-Sign Up</title>
     <link href="../CSS/AngularCSS.css" rel="stylesheet" />
 
     <!-- Bootstrap Core CSS -->
@@ -106,8 +106,8 @@
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2">@</span>
-                                <input type="text" autocomplete="off" class="form-control" placeholder="Mobile Number" ng-change="changeEvent()"
-                                       ng-model="User.MobileNumber" name="uMobileNumber" ng-class="submitted?'ng-dirty':''" required autofocus>
+                                <input type="text" autocomplete="off" class="form-control" maxlength="10" placeholder="Mobile Number" ng-change="changeEvent()"
+                                       ng-model="User.MobileNumber" ng-pattern="/^[0-9]{10,10}$/" name="uMobileNumber" ng-class="submitted?'ng-dirty':''" required autofocus>
                             </div>
 
                             
@@ -117,6 +117,8 @@
                     <tr>
                         <td>
                             &nbsp;
+                            <span class="error" ng-show="(Reg.uMobileNumber.$dirty || submitted) && Reg.uMobileNumber.$error.pattern">Mobile Number is not in correct format!</span>
+
                             <span class="error" ng-show="(Reg.uMobileNumber.$dirty || submitted) && Reg.uMobileNumber.$error.required">MobileNumber Required!</span>
                         </td>
                     </tr>
