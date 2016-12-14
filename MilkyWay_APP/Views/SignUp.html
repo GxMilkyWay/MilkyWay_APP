@@ -64,6 +64,27 @@
                     <tr>
 
                         <td>
+                            <!--<input type="radio" ng-model="User.UserType" name="uUserType" value="1" required />
+            <input type="radio" ng-model="User.UserType" name="uUserType" value="2" required />-->
+                            <label class="radio-inline">
+                                <input type="radio" name="uUserType" id="inlineRadio1" ng-model="User.UserType" value="1" required> Buyer
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="uUserType" id="inlineRadio2" ng-model="User.UserType" value="2" required> Seller
+                            </label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <span class="error" ng-show="(Reg.uUserType.$dirty || submitted) && Reg.uUserType.$error.required">UserType required!</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2">@</span>
                                 <input type="text" autocomplete="off" class="form-control" placeholder="FullName" ng-change="changeEvent()"
@@ -157,7 +178,24 @@
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">@</span>
+                                <input type="password" autocomplete="off" class="form-control" ng-change="changeEvent()"
+                                       placeholder="Confirm Password" ng-pattern="\b{{User.Password}}\b"
+                                       ng-model="User.conPassword" name="uconPassword" ng-class="submitted?'ng-dirty':''" required autofocus>
+                            </div>
+                             
+                        
+                        </td>
+                    </tr>
+                    <tr><td>
+                            &nbsp;
+                            <span class="error" ng-show="(Reg.uconPassword.$dirty || submitted) && Reg.uconPassword.$error.required">Confirm Password Required!</span>
+                            <span class="error" ng-show="(Reg.uconPassword.$dirty || submitted) && Reg.uconPassword.$error.pattern">Password Not Match!</span>
 
+                        </td></tr>
                     <tr>
 
                         <td>

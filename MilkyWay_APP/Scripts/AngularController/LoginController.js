@@ -62,7 +62,8 @@
         Username: '',
         Password: '',
         FullName: '',
-        MobileNumber:'',
+        MobileNumber: '',
+        UserType: '',
         EmailID: '' 
     };
 
