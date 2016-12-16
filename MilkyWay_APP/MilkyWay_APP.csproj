@@ -78,6 +78,7 @@
     <Content Include="CSS\logo-nav.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\Logo.png" />
+    <Content Include="Scripts\AngularController\SellPageController.js" />
     <Content Include="Scripts\AngularController\ConfigurationController.js" />
     <Content Include="Scripts\AngularController\LoginController.js" />
     <Content Include="Scripts\Angular\angular-route.min.js" />
@@ -89,6 +90,7 @@
     <Content Include="Scripts\MyApp.js" />
     <Content Include="Views\ForgetPassword.html" />
     <Content Include="Views\Index.html" />
+    <Content Include="Views\SellPage.html" />
     <Content Include="Views\SellerConfiguration.html" />
     <Content Include="Views\SignUp.html" />
     <Content Include="Web.config" />

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="online Milk order">
     <meta name="author" content="MilkyWay">
-    <title>MilkyWay-Configuration</title>
+    <title>MilkyWay-Selling Page</title>
     <link href="../CSS/AngularCSS.css" rel="stylesheet" />
 
     <!-- Bootstrap Core CSS -->
@@ -54,37 +54,30 @@
 
     <center>
         <div class="row">
-            <div class="col-lg-12"><h2>Configuration</h2></div>
+            <div class="col-lg-12"><h2>Sell</h2></div>
         </div>
 
-        <div ng-controller="ConfigurationController">
-            <form novalidate name="ConfigForm" ng-submit="SaveData(ConfigData)">
+        <div ng-controller="SellPageController">
+            <form novalidate name="SellForm" ng-submit="SaveData(SellData)">
                 <div style="color:red">{{message}}</div>
                 <table>
                     <tr>
-
+                        
                         <td>
-                            <!--<div ng-controller="ConfigurationController"
-                                 ng-init="checkboxes = {apple: false, orange: false, pear: false, naartjie: false}">
-                                <input type="checkbox" ng-model="checkboxes.apple">apple
-                                <input type="checkbox" ng-model="checkboxes.orange">orange
-                                <input type="checkbox" ng-model="checkboxes.pear">pear
-                                <input type="checkbox" ng-model="checkboxes.naartjie">naartjie
+                            <div class="input-group">
 
-                            </div>-->
-                            <select name="config_id" class="form-control"
-                                    ng-model="ConfigData.MeasurementID"
-                                    ng-options="dddata.id as dddata.name for dddata in Dropdowndata"
-                                    required>
-                                <option value="">Select Measurement</option>
-                            </select>
+                                <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></span>
+                                <input type="text" autocomplete="off" class="form-control" placeholder="Mobile Number" ng-pattern="/^[0-9]{10,10}$/" ng-change="changeEvent()"
+                                       ng-model="SellData.Mobile" name="Mobile" ng-class="submitted?'ng-dirty':''" required autofocus>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             &nbsp;
-                            <span class="error" ng-show="(ConfigForm.config_id.$dirty || submitted) &&
-                                   ConfigForm.config_id.$error.required">Measurement Required!</span>
+                            <span class="error" ng-show="(SellForm.Mobile.$dirty || submitted) && SellForm.Mobile.$error.pattern">Only 10 digits Number are allowed!</span>
+
+                            <span class="error" ng-show="(SellForm.Mobile.$dirty || submitted) && SellForm.Mobile.$error.required">Rate required!</span>
                         </td>
                     </tr>
 
@@ -92,39 +85,41 @@
 
                         <td>
                             <div class="input-group">
-                                
-                                <span class="input-group-addon" id="sizing-addon2">@</span>
-                                <input type="text" autocomplete="off" class="form-control" placeholder="Rate" ng-pattern="/^[0-9]*$/"
-                                       ng-model="ConfigData.Rate" name="uRate" ng-class="submitted?'ng-dirty':''" required autofocus>
+
+                                <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+   <input type="text" autocomplete="off" class="form-control" disabled="disabled">
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             &nbsp;
-                            <span class="error" ng-show="(ConfigForm.uRate.$dirty || submitted) && ConfigForm.uRate.$error.pattern">Only digits are allowed!</span>
-
-                            <span class="error" ng-show="(ConfigForm.uRate.$dirty || submitted) && ConfigForm.uRate.$error.required">Rate required!</span>
-                        </td>
+                            </td>
                     </tr>
 
                     <tr>
 
                         <td>
-                            <span>Quantity</span>
-                            <select name="Qty" class="form-control" multiple
-                                    ng-model="ConfigData.Qid"
-                                    ng-options="qdata.Qid as qdata.Qname for qdata in DropdownQty"
-                                    required></select>
+                            
+                            <select name="config_id" class="form-control"
+                                    ng-model="SellData.Qid"
+                                    ng-options="dddata.Qid as dddata.Qname for dddata in Dropdowndata"
+                                    required>
+                                <option value="">Select Quantity</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             &nbsp;
-                            <span class="error" ng-show="(ConfigForm.Qty.$dirty || submitted) &&
-                                   ConfigForm.Qty.$error.required">Measurement Required!</span>
+                            <span class="error" ng-show="(SellForm.config_id.$dirty || submitted) &&
+                                   SellForm.config_id.$error.required">Measurement Required!</span>
                         </td>
                     </tr>
+
+                
+
+                  
                     <tr>
 
                         <td>
@@ -145,7 +140,7 @@
     <script src="../Scripts/Angular/angular.min.js"></script>
     <script src="../Scripts/Angular/angular-route.min.js"></script>
     <script src="../Scripts/MyApp.js"></script>
-    <script src="../Scripts/AngularController/ConfigurationController.js"></script>    <!-- Bootstrap Core JavaScript -->
+    <script src="../Scripts/AngularController/SellPageController.js"></script>    <!-- Bootstrap Core JavaScript -->
     <script src="../Scripts/Master/bootstrap.min.js"></script>
 
 </body>
