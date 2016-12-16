@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="online Milk order">
+    <meta name="author" content="MilkyWay">
+    <title>MilkyWay-Sign Up</title>
+    <link href="../CSS/AngularCSS.css" rel="stylesheet" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../CSS/logo-nav.css" rel="stylesheet" />
+
+</head>
+<body ng-app="MyApp">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="../Images/Logo.png" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+
+
+    <center>
+        <div class="row">
+            <div class="col-lg-12"><h2>Configuration</h2></div>
+        </div>
+
+        <div ng-controller="ConfigurationController">
+            <form novalidate name="ConfigForm" ng-submit="SaveData(ConfigData)">
+                <div style="color:red">{{message}}</div>
+                <table>
+                    <tr>
+
+                        <td>
+                            <!--<div ng-controller="ConfigurationController"
+                                 ng-init="checkboxes = {apple: false, orange: false, pear: false, naartjie: false}">
+                                <input type="checkbox" ng-model="checkboxes.apple">apple
+                                <input type="checkbox" ng-model="checkboxes.orange">orange
+                                <input type="checkbox" ng-model="checkboxes.pear">pear
+                                <input type="checkbox" ng-model="checkboxes.naartjie">naartjie
+
+                            </div>-->
+                            <select name="config_id" class="form-control"
+                                    ng-model="ConfigData.MeasurementID"
+                                    ng-options="dddata.id as dddata.name for dddata in Dropdowndata"
+                                    required>
+                                <option value="">Select Measurement</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <span class="error" ng-show="(ConfigForm.config_id.$dirty || submitted) &&
+                                   ConfigForm.config_id.$error.required">Measurement Required!</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <div class="input-group">
+                                
+                                <span class="input-group-addon" id="sizing-addon2">@</span>
+                                <input type="text" autocomplete="off" class="form-control" placeholder="Rate" ng-pattern="/^[0-9]*$/"
+                                       ng-model="ConfigData.Rate" name="uRate" ng-class="submitted?'ng-dirty':''" required autofocus>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <span class="error" ng-show="(ConfigForm.uRate.$dirty || submitted) && ConfigForm.uRate.$error.pattern">Only digits are allowed!</span>
+
+                            <span class="error" ng-show="(ConfigForm.uRate.$dirty || submitted) && ConfigForm.uRate.$error.required">Rate required!</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <select name="Qty" class="form-control" multiple
+                                    ng-model="ConfigData.Qid"
+                                    ng-options="qdata.Qid as qdata.Qname for qdata in DropdownQty"
+                                    required></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <span class="error" ng-show="(ConfigForm.Qty.$dirty || submitted) &&
+                                   ConfigForm.Qty.$error.required">Measurement Required!</span>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="{{submitText}}" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </center>
+    <!-- /.container -->
+    <!-- jQuery -->
+
+    <script src="../Scripts/Master/jquery.js"></script>
+
+
+    <script src="../Scripts/Angular/angular.min.js"></script>
+    <script src="../Scripts/Angular/angular-route.min.js"></script>
+    <script src="../Scripts/MyApp.js"></script>
+    <script src="../Scripts/AngularController/ConfigurationController.js"></script>    <!-- Bootstrap Core JavaScript -->
+    <script src="../Scripts/Master/bootstrap.min.js"></script>
+
+</body>
+</html>
