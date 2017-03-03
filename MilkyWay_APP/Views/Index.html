@@ -86,8 +86,8 @@
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
-                                <input type="password" class="form-control"  placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
-                                       ng-model="LoginData.Password" name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <input type="password" class="form-control" placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
+                                       ng-model="LoginData.Password" id="pass"  name="cPassword" ng-class="Submitted?' ng-dirty':''" required autofocus>
                             </div>
  
                         </td>
@@ -122,10 +122,10 @@
     </center>
     <!-- /.container -->
     <!-- jQuery -->
-
+   
     <script src="../Scripts/Master/jquery.js"></script>
 
-
+    <script src="../Scripts/Security/aes.js"></script>
     <script src="../Scripts/Angular/angular.min.js"></script>
     <script src="../Scripts/Angular/angular-route.min.js"></script>
     <script src="../Scripts/MyApp.js"></script>
