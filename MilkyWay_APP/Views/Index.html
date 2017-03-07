@@ -8,14 +8,34 @@
     <meta name="author" content="MilkyWay">
     <title>MilkyWay-Home Page</title>
     <link href="../CSS/AngularCSS.css" rel="stylesheet" />
-     
+
     <!-- Bootstrap Core CSS -->
     <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="../CSS/logo-nav.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+
+    function bringvalue() {
+
+        var welcome_en = "<%$ Resources:String, MyResourceText%>"
+
+        alert('Error Message:: ' + '<%= Resources.HiddenData.MyResourceText %>');
+        alert('Error Message1:: ' + "<%= Resources.Resource1.MyResourceText %>");
+
+        
+       
+    }
+    </script>
 
 </head>
+
+
+
+
 <body ng-app="MyApp">
+    <input type="text" id="translatedField" name="translatedField" value="<%=Resources.HiddenData.MyResourceText %>" />
+    <input type="button" value="Click Here" onclick="bringvalue();" />
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -68,35 +88,37 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
                                 <input type="text" autocomplete="off" class="form-control" placeholder="Username" ng-change="changeEvent()"
-                                       ng-model="LoginData.Username" name="cUsername" aria-describedby="sizing-addon2"
+                                       ng-model="LoginData.Username" name="cUsername" aria-describedby="sizing-addon2" id="User"
                                        ng-class="Submitted?'ng-dirty':''" required autofocus>
                             </div>
-                            
+
                         </td>
 
                     </tr>
                     <tr>
-                        <td>&nbsp;
+                        <td>
+                            &nbsp;
                             <span class="error" ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required">Username required</span>
                         </td>
                     </tr>
-                     
+
                     <tr>
 
                         <td>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
                                 <input type="password" class="form-control" placeholder="Password" ng-change="changeEvent()" aria-describedby="sizing-addon2"
-                                       ng-model="LoginData.Password" id="pass"  name="cPassword" ng-class="Submitted?' ng-dirty':''" required autofocus>
+                                       ng-model="LoginData.Password" id="pass" name="cPassword" ng-class="Submitted?' ng-dirty':''" required autofocus>
                             </div>
- 
+
                         </td>
 
                     </tr>
-                    
+
 
                     <tr>
-                        <td>&nbsp;
+                        <td>
+                            &nbsp;
                             <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
                         </td>
                     </tr>
@@ -109,20 +131,26 @@
                     <tr>
                         <td>
                             <a class="pull-left" href="SignUp.html">Sign Up</a>
-                            
 
-                             
+
+
                             <a class="pull-right" href="ForgetPassword.html">Forget Password?</a>
-                            
+
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
     </center>
+    <div>
+
+        <input type="hidden" id="hdnusername">
+        <input type="hidden" id="hdnpassword">
+        <input type="hidden" id="hdnuzxcsername" value="sdfsdgfsdg">
+    </div>
     <!-- /.container -->
     <!-- jQuery -->
-   
+
     <script src="../Scripts/Master/jquery.js"></script>
 
     <script src="../Scripts/Security/aes.js"></script>

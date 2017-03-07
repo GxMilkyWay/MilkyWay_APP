@@ -26,12 +26,15 @@ angular.module('MyApp') // extending from previously created angular module in t
             $scope.LoginData;
             // $scope.Message = "Invalid Credential." ;
             LoginService.GetUser($scope.LoginData).then(function (d) {
-                if (d.data.Username != null) {
+                debugger;
+                if (d.data == true) {
                     $scope.IsLogedIn = true;
-                    $scope.Message = "Successfully login done. Welcome " + d.data.FullName;
+                    $scope.Message = "Successfully login done. Welcome " + d.data;
 
                 }
                 else {
+                   // $('#User').val('');
+                   // $('#User').val(as);
                     alert('Invalid Credential!');
                 }
             });
@@ -129,43 +132,52 @@ angular.module('MyApp') // extending from previously created angular module in t
     }
     fac.GetUser = function (d) {
         SubmitsEncry(d);
-        debugger;
+       // as = '';
+        // as= d.Username;      
+        //d.Username = $('#hdnusername').val();
+        d.Password = $('#hdnpassword').val();     
+       
         jQuery.support.cors = true;
-
         return $http({
+
             crossOrigin: true,
             url: APIurl + 'Regis/verify/',
             method: 'POST',
             data: $.param(d),
             //dataType: 'json',
-            // params: {"Username":"ss","Password":"ps"},
+             //params: {"Username":"ss","Password":"ps"},
             // data: d,//{Username: "ss", Password: "ps" },
             beforeSend: function (request) { apiRequestclient.setRequestHeader; },
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' }
 
         });
+       
     };
 
 
-
+     
     return fac;
 });
+var as = '';
 var apiRequestclient = {
     setRequestHeader: function (xhr) {
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     }
 }
-
+var encryptedlogin;
+var encryptedpassword;
 function SubmitsEncry(controls) {
-    debugger;
-    var txtUserName = controls.Username;
+    encryptedlogin='';
+      encryptedpassword='';
+   // var txtUserName = controls.Username;
     var txtpassword = controls.Password;
 
-    if (txtUserName == "") {
-        alert('Please enter UserName');
-        return false;
-    }
-    else if (txtpassword == "") {
+   // if (txtUserName == "") {
+    //    alert('Please enter UserName');
+   //     return false;
+    // }
+//else if (txtpassword == "") {
+      if (txtpassword == "") {
         alert('Please enter Password');
         return false;
     }
@@ -173,19 +185,20 @@ function SubmitsEncry(controls) {
         var key = CryptoJS.enc.Utf8.parse('8080808080808080');
         var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
 
-        var encryptedlogin = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtUserName), key,
+         // encryptedlogin = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtUserName), key,
 
-        { keySize: 128 / 8, iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+       // { keySize: 128 / 8, iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
 
        // $('#HDUser').val(encryptedlogin);
 
-        var encryptedpassword = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtpassword), key,
+          encryptedpassword = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtpassword), key,
 
         { keySize: 128 / 8, iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
 
-         $('#pass').val(encryptedpassword);
+         // $('#hdnusername').val(encryptedlogin);
+          $('#hdnpassword').val(encryptedpassword);
 
-        alert('encrypted Username :' + encryptedlogin);
-        alert('encrypted password :' + encryptedpassword);
+       // alert('encrypted Username :' + encryptedlogin);
+       // alert('encrypted password :' + encryptedpassword);
     }
 }
